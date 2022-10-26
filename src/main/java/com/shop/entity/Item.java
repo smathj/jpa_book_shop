@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity // 엔티디 선언 (엔티디 매니저가 관리함)
 @Table(name = "item")   // 연결 테이블 명시
-public class Item implements EntityPath<Object> {
+public class Item {
 
     @Id
     @Column(name="item_id")
