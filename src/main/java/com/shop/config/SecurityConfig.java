@@ -32,15 +32,17 @@ public class SecurityConfig {
                 .logoutSuccessUrl("/")  // 로그아웃 성공시 이동할 경로
         ;
 
-//        http.authorizeRequests()
-//                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
-//                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-//                .mvcMatchers("/admin/**").hasRole("ADMIN")
-//                .anyRequest().authenticated()
-//        ;
 
-//        http.exceptionHandling()
-//                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+        http.authorizeRequests()
+                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
+                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
+                .mvcMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
+        ;
+
+        // * 인증되지 않은 사용자가 리소스 접근했을때 수행되는 핸들러 등록
+        http.exceptionHandling()
+                .authenticationEntryPoint(new CustomAuthenticationEntryPoint())
         ;
 
         return http.build();
