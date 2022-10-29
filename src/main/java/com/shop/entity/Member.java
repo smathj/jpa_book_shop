@@ -33,6 +33,7 @@ public class Member {
     private Role role;
 
 
+    // * 엔티티를 리턴하는 메서드
     public static Member createMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder) {
 
         Member member = new Member();
