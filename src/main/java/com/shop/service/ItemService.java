@@ -22,14 +22,14 @@ public class ItemService {
     private final ItemImgRepository itemImgRepository;
 
 
-    public Long saveItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgfileList) throws Exception {
+    public Long saveItem(ItemFormDto itemFormDto, List<MultipartFile> itemImgFileList) throws Exception {
 
         // 상품 등록
         Item item = itemFormDto.createItem();   // dto를 entity로 맵핑하여 리턴
-        itemRepository.save(item);  // 저장
+        itemRepository.save(item);  // ! 저장
 
         // 이미지 등록
-        for (int i = 0; i < itemImgfileList.size(); i++) {
+        for (int i = 0; i < itemImgFileList.size(); i++) {
             ItemImg itemImg = new ItemImg();
             itemImg.setItem(item);
             if (i == 0) {
@@ -37,7 +37,7 @@ public class ItemService {
             } else {
                 itemImg.setRepimgYn("N");
             }
-            itemImgService.saveItemImg(itemImg, itemImgfileList.get(i));
+            itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
         }
 
         return item.getId();
