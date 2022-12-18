@@ -1,20 +1,18 @@
 package com.shop.entity;
 
-import com.querydsl.core.types.EntityPath;
 import com.shop.constant.ItemSellStatus;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @ToString
 @Entity // 엔티디 선언 (엔티디 매니저가 관리함)
 @Table(name = "item")   // 연결 테이블 명시
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @Column(name="item_id")
@@ -37,9 +35,9 @@ public class Item {
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;  // 상품 판매 상태
 
-    private LocalDateTime regTime;  // 등록 시간
+//    private LocalDateTime regTime;  // 등록 시간
 
-    private LocalDateTime updateTime;   // 수정 시간
+//    private LocalDateTime updateTime;   // 수정 시간
 
     
 }

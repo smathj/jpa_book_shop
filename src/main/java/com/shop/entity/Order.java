@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
-public class Order {
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -37,6 +37,6 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
 
 
-    private LocalDateTime regTime;
-    private LocalDateTime updateTime;
+//    private LocalDateTime regTime;
+//    private LocalDateTime updateTime;
 }

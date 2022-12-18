@@ -1,8 +1,6 @@
 package com.shop.entity;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -10,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "cart")
 @Getter @Setter
 @ToString
-public class Cart {
+public class Cart extends BaseEntity {
 
     @Id
     @GeneratedValue
@@ -21,5 +19,9 @@ public class Cart {
     @JoinColumn(name="member_id")
     private Member member;
 
-
+    public static Cart createCart(Member member){
+        Cart cart = new Cart();
+        cart.setMember(member);
+        return cart;
+    }
 }
